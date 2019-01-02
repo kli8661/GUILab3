@@ -1,6 +1,5 @@
 package sample;
 
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -20,7 +19,7 @@ public class Controller implements Initializable {
     private GameCode simonsays = new GameCode();
     private ArrayList<String> sequence = simonsays.getSequence();
     @FXML
-    private Rectangle startBtn;
+    private Button startBtn;
 
     @FXML
     private Rectangle greenBtn;
@@ -65,10 +64,6 @@ public class Controller implements Initializable {
                 if(!simonsays.checkUserInput("y"))
                     gameOver();
 
-            if(e.getSource() == blueBtn)
-                if(!simonsays.checkUserInput("b"))
-                    gameOver();
-
             if(simonsays.getIndex() == 0)
             {
                 displaySequence(simonsays.getSequence());
@@ -86,6 +81,7 @@ public class Controller implements Initializable {
     {
         Alert gameover = new Alert(AlertType.ERROR);
         gameover.setTitle("Game over!");
+        gameover.setHeaderText("Game over!");
         gameover.show();
     }
 
@@ -136,7 +132,6 @@ public class Controller implements Initializable {
         }
         s.play();
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {}

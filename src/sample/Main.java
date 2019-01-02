@@ -12,12 +12,11 @@ public class Main extends Application {
     private AnchorPane rootLayout;
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage){
        try {
            this.primaryStage = primaryStage;
            primaryStage.setTitle("Simon Says");
-           FXMLLoader loader = new FXMLLoader(Main.class.getResource("sample.fxml"));
-           rootLayout = (AnchorPane) loader.load();
+           rootLayout = (AnchorPane) FXMLLoader.load(Main.class.getResource("../sample.fxml"));
            Scene scene = new Scene(rootLayout);
            primaryStage.setScene(scene);
            primaryStage.show();
