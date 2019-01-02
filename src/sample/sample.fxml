@@ -4,12 +4,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: silver;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" >
+<?import javafx.scene.control.Button?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: silver;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller" >
     <children>
-        <Rectangle fx:id="greenBtn" arcHeight="5.0" arcWidth="5.0" fill="#0ab916" height="150.0" layoutX="100.0" layoutY="50.0"  stroke="BLACK" strokeType="INSIDE" width="150.0" />
-        <Rectangle fx:id="redBtn" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="150.0" layoutX="250.0" layoutY="50.0"  stroke="BLACK" strokeType="INSIDE" width="150.0" />
-        <Rectangle fx:id="yellowbtn" arcHeight="5.0" arcWidth="5.0" fill="#e8eb23" height="150.0" layoutX="100.0" layoutY="200.0"  stroke="BLACK" strokeType="INSIDE" width="150.0" />
-        <Rectangle fx:id="blueBtn" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="150.0" layoutX="250.0" layoutY="200.0"  stroke="BLACK" strokeType="INSIDE" width="150.0" />
+        <Button fx:id="startBtn" layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="47.0" prefWidth="99.0" text="Start">
+
+        </Button>
+        <Rectangle fx:id="greenBtn" arcHeight="5.0" arcWidth="5.0" fill="#0ab916" height="150.0" layoutX="100.0" layoutY="50.0" onMouseClicked="#userClick" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+        <Rectangle fx:id="redBtn" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="150.0" layoutX="250.0" layoutY="50.0" onMouseClicked="#userClick" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+        <Rectangle fx:id="yellowBtn" arcHeight="5.0" arcWidth="5.0" fill="#e8eb23" height="150.0" layoutX="100.0" layoutY="200.0" onMouseClicked="#userClick" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+        <Rectangle fx:id="blueBtn" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="150.0" layoutX="250.0" layoutY="200.0" onMouseClicked="#userClick" stroke="BLACK" strokeType="INSIDE" width="150.0" />
         <TabPane layoutX="37.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" />
     </children>
 </AnchorPane>
