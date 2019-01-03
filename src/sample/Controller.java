@@ -11,11 +11,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class Controller implements Initializable {
+
+    public Label roundNum;
+
+    private int roundNumber = 1;
 
     private GameCode simonsays = new GameCode();
 
@@ -43,12 +48,14 @@ public class Controller implements Initializable {
         if(e.getSource() == startBtn)
         {
             simonsays.startGame();
+            roundNumber = 1;
+            roundNum.setText("Round: " + roundNumber);
             displaySequence(simonsays.getSequence());
         }
-        redBtn.setStyle("-fx-background-color: #ff0000");
-        greenBtn.setStyle("-fx-background-color: #00ff00");
-        blueBtn.setStyle("-fx-background-color: #0000ff");
-        yellowBtn.setStyle("-fx-background-color: #FFFF33");
+        redBtn.setStyle("-fx-background-color: #f74840");
+        greenBtn.setStyle("-fx-background-color: #61f44e");
+        blueBtn.setStyle("-fx-background-color: #8293ed");
+        yellowBtn.setStyle("-fx-background-color: #f1fa33");
     }
 
     @FXML
@@ -75,12 +82,16 @@ public class Controller implements Initializable {
             if(simonsays.getIndex() == 0)
             {
                 displaySequence(simonsays.getSequence());
+                roundNumber++;
+                roundNum.setText("Round: " + roundNumber);
             }
         }
         else
         {
             Alert start = new Alert(AlertType.INFORMATION);
-            start.setTitle("Click start to begin.");
+            start.setTitle("BeginGameWindow.");
+            start.setHeaderText(":D");
+            start.setContentText("Start by clicking the start button!");
             start.show();
         }
     }
@@ -88,8 +99,9 @@ public class Controller implements Initializable {
     private void gameOver()
     {
         Alert gameover = new Alert(AlertType.ERROR);
-        gameover.setTitle("Game over!");
-        gameover.setHeaderText("Game over!");
+        gameover.setTitle("GameEndWindow");
+        gameover.setHeaderText("Game Over!");
+        gameover.setContentText("You scored: " + roundNumber + " rounds.");
         gameover.show();
     }
 
