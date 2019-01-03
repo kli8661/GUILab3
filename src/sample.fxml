@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-
 <?import javafx.scene.control.Button?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: silver;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller" >
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: silver;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-        <Button fx:id="startBtn" layoutX="466.0" layoutY="140.0" mnemonicParsing="false" onAction="#buttonAction" prefHeight="47.0" prefWidth="99.0" text="Start">
-        </Button>
-        <Rectangle fx:id="redBtn" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="150.0" layoutX="121.0" layoutY="51.0" onMouseClicked="#userClick" stroke="BLACK" strokeType="INSIDE" width="150.0" />
-        <Rectangle fx:id="greenBtn" arcHeight="5.0" arcWidth="5.0" fill="#0ab916" height="150.0" layoutX="271.0" layoutY="51.0" onMouseClicked="#userClick" stroke="BLACK" strokeType="INSIDE" width="150.0" />
-        <Rectangle fx:id="blueBtn" arcHeight="5.0" arcWidth="5.0" fill="0000ff" height="150.0" layoutX="121.0" layoutY="201.0" onMouseClicked="#userClick" stroke="BLACK" strokeType="INSIDE" width="150.0" />
-        <Rectangle fx:id="yellowBtn" arcHeight="5.0" arcWidth="5.0" fill="#e8eb23" height="150.0" layoutX="271.0" layoutY="201.0" onMouseClicked="#userClick" stroke="BLACK" strokeType="INSIDE" width="150.0" />
-        <TabPane layoutX="37.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" />
+        <Button fx:id="startBtn" mnemonicParsing="false" onAction="#buttonAction" prefHeight="47.0" prefWidth="99.0" text="Start" />
+        <Button fx:id="redBtn" layoutX="29.0" layoutY="67.0" onMouseClicked="#userClick" prefHeight="140.0" prefWidth="140.0"  text="Red" />
+        <Button fx:id="greenBtn" layoutX="185.0" layoutY="67.0" onMouseClicked="#userClick" prefHeight="140.0" prefWidth="140.0" text="Green" />
+        <Button fx:id="blueBtn" layoutX="29.0" layoutY="231.0" onMouseClicked="#userClick" prefHeight="140.0" prefWidth="140.0" text="Blue" />
+        <Button fx:id="yellowBtn" layoutX="185.0" layoutY="231.0" onMouseClicked="#userClick" prefHeight="140.0" prefWidth="140.0" text="Yellow" />
     </children>
 </AnchorPane>

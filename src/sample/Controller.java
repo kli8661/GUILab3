@@ -16,22 +16,26 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class Controller implements Initializable {
+
     private GameCode simonsays = new GameCode();
+
     private ArrayList<String> sequence = simonsays.getSequence();
+
     @FXML
     private Button startBtn;
 
     @FXML
-    private Rectangle greenBtn;
+    private Button greenBtn;
 
     @FXML
-    private Rectangle redBtn;
+    private Button redBtn;
 
     @FXML
-    private Rectangle yellowBtn;
+    private Button yellowBtn;
 
     @FXML
-    private Rectangle blueBtn;
+    private Button blueBtn;
+
 
     @FXML
     private void buttonAction(ActionEvent e)
@@ -41,6 +45,10 @@ public class Controller implements Initializable {
             simonsays.startGame();
             displaySequence(simonsays.getSequence());
         }
+        redBtn.setStyle("-fx-background-color: #ff0000");
+        greenBtn.setStyle("-fx-background-color: #00ff00");
+        blueBtn.setStyle("-fx-background-color: #0000ff");
+        yellowBtn.setStyle("-fx-background-color: #FFFF33");
     }
 
     @FXML
@@ -95,39 +103,39 @@ public class Controller implements Initializable {
             switch(sequence.get(i))
             {
                 case "r":
-                    FadeTransition redft = new FadeTransition(Duration.millis(300), redBtn);
-                    redft.setAutoReverse(true);
-                    redft.setFromValue(1.0);
-                    redft.setToValue(0.1);
-                    redft.setCycleCount(2);
-                    s.getChildren().add(redft);
+                    FadeTransition redTransition = new FadeTransition(Duration.millis(300), redBtn);
+                    redTransition.setAutoReverse(true);
+                    redTransition.setFromValue(1.0);
+                    redTransition.setToValue(0.1);
+                    redTransition.setCycleCount(2);
+                    s.getChildren().add(redTransition);
                     break;
 
                 case "g":
-                    FadeTransition greenft = new FadeTransition(Duration.millis(300), greenBtn);
-                    greenft.setAutoReverse(true);
-                    greenft.setFromValue(1.0);
-                    greenft.setToValue(0.1);
-                    greenft.setCycleCount(2);
-                    s.getChildren().add(greenft);
+                    FadeTransition greenTransition = new FadeTransition(Duration.millis(300), greenBtn);
+                    greenTransition.setAutoReverse(true);
+                    greenTransition.setFromValue(1.0);
+                    greenTransition.setToValue(0.1);
+                    greenTransition.setCycleCount(2);
+                    s.getChildren().add(greenTransition);
                     break;
 
                 case "b":
-                    FadeTransition blueft = new FadeTransition(Duration.millis(300), blueBtn);
-                    blueft.setAutoReverse(true);
-                    blueft.setFromValue(1.0);
-                    blueft.setToValue(0.1);
-                    blueft.setCycleCount(2);
-                    s.getChildren().add(blueft);
+                    FadeTransition blueTransition = new FadeTransition(Duration.millis(300), blueBtn);
+                    blueTransition.setAutoReverse(true);
+                    blueTransition.setFromValue(1.0);
+                    blueTransition.setToValue(0.1);
+                    blueTransition.setCycleCount(2);
+                    s.getChildren().add(blueTransition);
                     break;
 
                 case "y":
-                    FadeTransition yellowft = new FadeTransition(Duration.millis(300), yellowBtn);
-                    yellowft.setAutoReverse(true);
-                    yellowft.setFromValue(1.0);
-                    yellowft.setToValue(0.1);
-                    yellowft.setCycleCount(2);
-                    s.getChildren().add(yellowft);
+                    FadeTransition yellowTransition = new FadeTransition(Duration.millis(300), yellowBtn);
+                    yellowTransition.setAutoReverse(true);
+                    yellowTransition.setFromValue(1.0);
+                    yellowTransition.setToValue(0.1);
+                    yellowTransition.setCycleCount(2);
+                    s.getChildren().add(yellowTransition);
             }
         }
         s.play();
