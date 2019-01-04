@@ -7,6 +7,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import com.opencsv.CSVWriter;
 import javafx.animation.FadeTransition;
 import javafx.animation.SequentialTransition;
 import javafx.event.ActionEvent;
@@ -165,7 +167,7 @@ public class Controller implements Initializable {
         gameOver.setHeaderText("Game Over!");
         gameOver.setContentText("You scored: " + roundNumber + " rounds.");
         System.out.println("You scored: " + roundNumber + " rounds.");
-        writeDataToCSV("../results.csv");
+        writeDataToCSV("results.csv");
         gameOver.show();
 
     }
