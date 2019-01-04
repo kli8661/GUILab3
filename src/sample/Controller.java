@@ -2,6 +2,7 @@ package sample;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
 import javafx.animation.SequentialTransition;
@@ -12,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
@@ -23,9 +25,9 @@ public class Controller implements Initializable {
 
     private GameCode simonsays = new GameCode();
 
-    private ArrayList<String> sequence = simonsays.getSequence();
+    private String nameStr = "";
 
-    private boolean isRunning;
+    private ArrayList<String> sequence = simonsays.getSequence();
 
     @FXML
     private Button startBtn;
@@ -48,6 +50,16 @@ public class Controller implements Initializable {
     {
         if(e.getSource() == startBtn)
         {
+            TextInputDialog dialog = new TextInputDialog("Your Name Here");
+            dialog.setTitle("Text Input Dialog");
+            dialog.setHeaderText("Look, a Text Input Dialog");
+            dialog.setContentText("Please enter your name:");
+            Optional<String> result = dialog.showAndWait();
+            nameStr = result.get();
+            if (result.isPresent())
+            {
+                System.out.println("Your name: " + nameStr);
+            }
             simonsays.startGame();
             roundNumber = 1;
             roundNum.setText("Round: " + roundNumber);
@@ -149,6 +161,7 @@ public class Controller implements Initializable {
         gameOver.setTitle("GameEndWindow");
         gameOver.setHeaderText("Game Over!");
         gameOver.setContentText("You scored: " + roundNumber + " rounds.");
+        System.out.println("You scored: " + roundNumber + " rounds.");
         gameOver.show();
     }
 
