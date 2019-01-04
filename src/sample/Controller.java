@@ -7,7 +7,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import com.opencsv.CSVWriter;
 import javafx.animation.FadeTransition;
 import javafx.animation.SequentialTransition;
@@ -60,11 +59,11 @@ public class Controller implements Initializable {
             dialog.setHeaderText("Look, a Text Input Dialog");
             dialog.setContentText("Please enter your name:");
             Optional<String> result = dialog.showAndWait();
-            nameStr = result.get();
-            if (result.isPresent())
-            {
-                System.out.println("Your name: " + nameStr);
+            boolean present = result.isPresent();
+            if(present) {
+                nameStr = result.get();
             }
+            System.out.println("Your name: " + nameStr);
             simonsays.startGame();
             roundNumber = 1;
             roundNum.setText("Round: " + roundNumber);
@@ -167,12 +166,12 @@ public class Controller implements Initializable {
         gameOver.setHeaderText("Game Over!");
         gameOver.setContentText("You scored: " + roundNumber + " rounds.");
         System.out.println("You scored: " + roundNumber + " rounds.");
-        writeDataToCSV("results.csv");
+        writeToCSV("results.csv");
         gameOver.show();
 
     }
 
-    public static void writeDataToCSV(String filePath) {
+    public static void writeToCSV(String filePath) {
         File file = new File(filePath);
         try {
             FileWriter outputFile = new FileWriter(file, true);
@@ -180,8 +179,8 @@ public class Controller implements Initializable {
             String[] data1 = {nameStr, Integer.toString(roundNumber)};
             writer.writeNext(data1);
             writer.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
     }
