@@ -1,5 +1,8 @@
 package sample;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -21,11 +24,11 @@ public class Controller implements Initializable {
 
     public Label roundNum;
 
-    private int roundNumber = 1;
+    private static int roundNumber = 1;
 
     private GameCode simonsays = new GameCode();
 
-    private String nameStr = "";
+    private static String nameStr = "";
 
     private ArrayList<String> sequence = simonsays.getSequence();
 
@@ -162,7 +165,25 @@ public class Controller implements Initializable {
         gameOver.setHeaderText("Game Over!");
         gameOver.setContentText("You scored: " + roundNumber + " rounds.");
         System.out.println("You scored: " + roundNumber + " rounds.");
+        writeDataToCSV("../results.csv");
         gameOver.show();
+
+    }
+
+    public static void writeDataToCSV(String filePath) {
+        File file = new File(filePath);
+        try {
+            FileWriter outputFile = new FileWriter(file);
+            CSVWriter writer = new CSVWriter(outputFile);
+            String[] header = {"Name", "Score"};
+            writer.writeNext(header);
+            String[] data1 = {nameStr, Integer.toString(roundNumber)};
+            writer.writeNext(data1);
+            writer.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public void displaySequence(ArrayList<String> sequence)
