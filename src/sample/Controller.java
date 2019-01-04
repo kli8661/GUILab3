@@ -1,11 +1,9 @@
 package sample;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
-import javafx.animation.FillTransition;
 import javafx.animation.SequentialTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.Glow;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
@@ -27,6 +24,8 @@ public class Controller implements Initializable {
     private GameCode simonsays = new GameCode();
 
     private ArrayList<String> sequence = simonsays.getSequence();
+
+    private boolean isRunning;
 
     @FXML
     private Button startBtn;
