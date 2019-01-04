@@ -13,18 +13,18 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage){
-       try {
-           this.primaryStage = primaryStage;
-           primaryStage.setTitle("Simon Says");
-           rootLayout = (AnchorPane) FXMLLoader.load(Main.class.getResource("../sample.fxml"));
-           Scene scene = new Scene(rootLayout);
-           primaryStage.setScene(scene);
-           primaryStage.show();
-       }
-       catch(Exception e)
-       {
-           e.printStackTrace();
-       }
+        try {
+            this.primaryStage = primaryStage;
+            primaryStage.setTitle("Simon Says");
+            rootLayout = (AnchorPane) FXMLLoader.load(Main.class.getResource("../sample.fxml"));
+            Scene scene = new Scene(rootLayout);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
 

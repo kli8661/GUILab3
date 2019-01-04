@@ -175,10 +175,8 @@ public class Controller implements Initializable {
     public static void writeDataToCSV(String filePath) {
         File file = new File(filePath);
         try {
-            FileWriter outputFile = new FileWriter(file);
+            FileWriter outputFile = new FileWriter(file, true);
             CSVWriter writer = new CSVWriter(outputFile);
-            String[] header = {"Name", "Score"};
-            writer.writeNext(header);
             String[] data1 = {nameStr, Integer.toString(roundNumber)};
             writer.writeNext(data1);
             writer.close();
