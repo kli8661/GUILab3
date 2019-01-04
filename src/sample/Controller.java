@@ -1,14 +1,13 @@
 package sample;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
-
 import javafx.animation.FadeTransition;
+import javafx.animation.FillTransition;
 import javafx.animation.SequentialTransition;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -64,12 +63,21 @@ public class Controller implements Initializable {
     @FXML
     private void userClick(MouseEvent e)
     {
+        SequentialTransition s = new SequentialTransition();
+        s.setCycleCount(1);
+        s.setAutoReverse(false);
         if(simonsays.isGameRunning())
         {
             if(e.getSource() == redBtn) {
                 if (simonsays.checkUserInput("r"))
                 {
-                    redBtn.setEffect(new Glow(0.8));
+                    FadeTransition redTransition = new FadeTransition(Duration.millis(100), redBtn);
+                    redTransition.setAutoReverse(true);
+                    redTransition.setFromValue(1.0);
+                    redTransition.setToValue(0.5);
+                    redTransition.setCycleCount(2);
+                    s.getChildren().add(redTransition);
+                    s.play();
                 }
                 else
                     gameOver();
@@ -78,7 +86,13 @@ public class Controller implements Initializable {
             if(e.getSource() == greenBtn) {
                 if (simonsays.checkUserInput("g"))
                 {
-                    greenBtn.setEffect(new Glow(0.8));
+                    FadeTransition greenTransition = new FadeTransition(Duration.millis(100), greenBtn);
+                    greenTransition.setAutoReverse(true);
+                    greenTransition.setFromValue(1.0);
+                    greenTransition.setToValue(0.5);
+                    greenTransition.setCycleCount(2);
+                    s.getChildren().add(greenTransition);
+                    s.play();
                 }
                 else
                     gameOver();
@@ -87,7 +101,13 @@ public class Controller implements Initializable {
             if(e.getSource() == blueBtn) {
                 if (simonsays.checkUserInput("b"))
                 {
-                    blueBtn.setEffect(new Glow(0.8));
+                    FadeTransition blueTransition = new FadeTransition(Duration.millis(150), blueBtn);
+                    blueTransition.setAutoReverse(true);
+                    blueTransition.setFromValue(1.0);
+                    blueTransition.setToValue(0.5);
+                    blueTransition.setCycleCount(2);
+                    s.getChildren().add(blueTransition);
+                    s.play();
                 }
                 else
                     gameOver();
@@ -96,7 +116,13 @@ public class Controller implements Initializable {
             if(e.getSource() == yellowBtn) {
                 if (simonsays.checkUserInput("y"))
                 {
-                    yellowBtn.setEffect(new Glow(0.8));
+                    FadeTransition yellowTransition = new FadeTransition(Duration.millis(100), yellowBtn);
+                    yellowTransition.setAutoReverse(true);
+                    yellowTransition.setFromValue(1.0);
+                    yellowTransition.setToValue(0.1);
+                    yellowTransition.setCycleCount(2);
+                    s.getChildren().add(yellowTransition);
+                    s.play();
                 }
                 else
                     gameOver();
@@ -138,7 +164,7 @@ public class Controller implements Initializable {
             switch(sequence.get(i))
             {
                 case "r":
-                    FadeTransition redTransition = new FadeTransition(Duration.millis(250), redBtn);
+                    FadeTransition redTransition = new FadeTransition(Duration.millis(300), redBtn);
                     redTransition.setAutoReverse(true);
                     redTransition.setFromValue(1.0);
                     redTransition.setToValue(0.1);
@@ -147,7 +173,7 @@ public class Controller implements Initializable {
                     break;
 
                 case "g":
-                    FadeTransition greenTransition = new FadeTransition(Duration.millis(250), greenBtn);
+                    FadeTransition greenTransition = new FadeTransition(Duration.millis(300), greenBtn);
                     greenTransition.setAutoReverse(true);
                     greenTransition.setFromValue(1.0);
                     greenTransition.setToValue(0.1);
@@ -156,7 +182,7 @@ public class Controller implements Initializable {
                     break;
 
                 case "b":
-                    FadeTransition blueTransition = new FadeTransition(Duration.millis(250), blueBtn);
+                    FadeTransition blueTransition = new FadeTransition(Duration.millis(300), blueBtn);
                     blueTransition.setAutoReverse(true);
                     blueTransition.setFromValue(1.0);
                     blueTransition.setToValue(0.1);
@@ -165,7 +191,7 @@ public class Controller implements Initializable {
                     break;
 
                 case "y":
-                    FadeTransition yellowTransition = new FadeTransition(Duration.millis(250), yellowBtn);
+                    FadeTransition yellowTransition = new FadeTransition(Duration.millis(300), yellowBtn);
                     yellowTransition.setAutoReverse(true);
                     yellowTransition.setFromValue(1.0);
                     yellowTransition.setToValue(0.1);
