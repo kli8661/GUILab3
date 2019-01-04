@@ -82,7 +82,7 @@ public class Controller implements Initializable {
             if(e.getSource() == redBtn) {
                 if (simonsays.checkUserInput("r"))
                 {
-                    FadeTransition redTransition = new FadeTransition(Duration.millis(100), redBtn);
+                    FadeTransition redTransition = new FadeTransition(Duration.millis(75), redBtn);
                     redTransition.setAutoReverse(true);
                     redTransition.setFromValue(1.0);
                     redTransition.setToValue(0.5);
@@ -97,7 +97,7 @@ public class Controller implements Initializable {
             if(e.getSource() == greenBtn) {
                 if (simonsays.checkUserInput("g"))
                 {
-                    FadeTransition greenTransition = new FadeTransition(Duration.millis(100), greenBtn);
+                    FadeTransition greenTransition = new FadeTransition(Duration.millis(75), greenBtn);
                     greenTransition.setAutoReverse(true);
                     greenTransition.setFromValue(1.0);
                     greenTransition.setToValue(0.5);
@@ -112,7 +112,7 @@ public class Controller implements Initializable {
             if(e.getSource() == blueBtn) {
                 if (simonsays.checkUserInput("b"))
                 {
-                    FadeTransition blueTransition = new FadeTransition(Duration.millis(150), blueBtn);
+                    FadeTransition blueTransition = new FadeTransition(Duration.millis(75), blueBtn);
                     blueTransition.setAutoReverse(true);
                     blueTransition.setFromValue(1.0);
                     blueTransition.setToValue(0.5);
@@ -127,7 +127,7 @@ public class Controller implements Initializable {
             if(e.getSource() == yellowBtn) {
                 if (simonsays.checkUserInput("y"))
                 {
-                    FadeTransition yellowTransition = new FadeTransition(Duration.millis(100), yellowBtn);
+                    FadeTransition yellowTransition = new FadeTransition(Duration.millis(75), yellowBtn);
                     yellowTransition.setAutoReverse(true);
                     yellowTransition.setFromValue(1.0);
                     yellowTransition.setToValue(0.1);
